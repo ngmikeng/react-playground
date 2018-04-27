@@ -7,7 +7,7 @@ const TodoList = ({listTodos, onToggleTodo}) => (
       listTodos.map((todo) => (
         <Todo
           key={todo.id}
-          content={todo.content}
+          {...todo}
           onClick={(e) => onToggleTodo(todo.id)}
         />
       ))
