@@ -1,5 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import AppLayout from './layouts/App';
+import { createBrowserHistory } from 'history';
+import { Router, Route, Switch } from "react-router-dom";
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+const history = createBrowserHistory();
+
+ReactDOM.render(
+  <Router history={history}>
+    <Switch>
+      <Route path='/' component={AppLayout}/>;
+    </Switch>
+  </Router>
+  ,document.getElementById('root')
+);
