@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
-import Post from '../components/Post';
+import appRoutes from '../routes/app';
+import Sidebar from '../components/Sidebar';
 
-
-class App extends Component {
+class AppLayout extends Component {
   render() {
     return (
       <div>
@@ -14,9 +14,12 @@ class App extends Component {
             </li>
           </ul>
         </div>
+        <Sidebar routes={appRoutes} />
         <div>
           <Switch>
-            <Route path='/posts' component={Post} />
+            {appRoutes.map((route, index) => 
+              <Route path={route.path} component={route.component} key={index} />
+            )}
           </Switch>
         </div>
       </div>
@@ -24,4 +27,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default AppLayout;
