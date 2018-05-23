@@ -19,22 +19,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import { NavLink } from 'react-router-dom';
-
-const drawerWidth = 240;
-
-const styles = theme => ({
-  drawerPaper: {
-    position: 'relative',
-    width: drawerWidth,
-  },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-  }
-});
+import sidebarStyle from '../assets/jss/sidebarStyle';
 
 class Sidebar extends Component {
   render() {
@@ -85,4 +70,4 @@ Sidebar.propTypes = {
   onClickDrawerClose: PropTypes.func.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(Sidebar);
+export default withStyles(sidebarStyle, { withTheme: true })(Sidebar);
