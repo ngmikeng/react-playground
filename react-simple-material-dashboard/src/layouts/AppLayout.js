@@ -3,15 +3,15 @@ import { Switch, Route, Redirect, Link, NavLink } from 'react-router-dom';
 import appRoutes from '../routes/app';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
-
+import SettingBar from '../components/SettingBar';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -63,19 +63,9 @@ class AppLayout extends Component {
 
     return (
       <div className={classes.root}>
-        <TextField
-          id="persistent-anchor"
-          select
-          label="Anchor"
-          value={anchor}
-          onChange={this.handleChangeAnchor}
-          margin="normal"
-        >
-          <MenuItem value="left">left</MenuItem>
-          <MenuItem value="right">right</MenuItem>
-        </TextField>
+        <CssBaseline />
         <div className={classes.appFrame}>
-          <Header {...this.state} onClickDrawerOpen={this.handleDrawerOpen} />
+          <Header {...this.state} onClickDrawerOpen={this.handleDrawerOpen} onChangeAnchor={this.handleChangeAnchor} />
           {before}
           <main
             className={classNames(classes.content, classes[`content-${anchor}`], {
@@ -83,6 +73,7 @@ class AppLayout extends Component {
               [classes[`contentShift-${anchor}`]]: open,
             })}>
             <div className={classes.drawerHeader}></div>
+            <SettingBar anchor={anchor} onChangeAnchor={this.handleChangeAnchor} />
             <Typography>{'You think water moves fast? You should see ice.'}</Typography>
             <Switch>
               {appRoutes.map((route, index) => 

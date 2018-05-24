@@ -46,7 +46,7 @@ class Sidebar extends Component {
                 <NavLink to={route.path} key={index}>
                   <ListItem button>
                     <ListItemIcon>
-                      <InboxIcon />
+                      <route.icon/>
                     </ListItemIcon>
                     <ListItemText primary={route.sidebarName} />
                   </ListItem>

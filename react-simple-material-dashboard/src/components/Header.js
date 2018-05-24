@@ -11,7 +11,7 @@ import headerStyle from '../assets/jss/headerStyle';
 
 class Header extends Component {
   render() {
-    const { classes, open, anchor, onClickDrawerOpen } = this.props;
+    const { classes, open, anchor, onClickDrawerOpen, onChangeAnchor } = this.props;
 
     return (
       <AppBar
@@ -41,6 +41,7 @@ Header.propTypes = {
   classes: PropTypes.object.isRequired,
   anchor: PropTypes.string.isRequired,
   open: PropTypes.bool.isRequired,
+  onChangeAnchor: PropTypes.func.isRequired,
   onClickDrawerOpen: PropTypes.func.isRequired
 };
 
